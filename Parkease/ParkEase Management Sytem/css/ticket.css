@@ -1,0 +1,355 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+:root {
+    --blue: #1479ff;
+    --blue-dark: #0754bd;
+    --black: #05070b;
+    --card: #101620;
+    --white: #fff;
+    --text: #f4f7fb;
+    --muted: #8b98aa;
+    --green: #22c55e;
+    --border: rgba(255,255,255,.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "DM Sans",sans-serif;
+    background:
+        radial-gradient(circle at 50% 20%,rgba(20,121,255,.1),transparent 35%),
+        var(--black);
+    color: var(--text);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(700px,calc(100% - 30px));
+    margin: auto;
+}
+
+/* NAV */
+
+.navbar {
+    height: 78px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(5,7,11,.96);
+}
+
+.nav-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Manrope",sans-serif;
+    font-weight: 800;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,var(--blue),var(--blue-dark));
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+.logo-text {
+    font-size: 20px;
+}
+
+.logo-text span {
+    color: var(--blue);
+}
+
+.logo-text small {
+    display: block;
+    color: var(--muted);
+    font-family: "DM Sans";
+    font-size: 9px;
+}
+
+/* PAGE */
+
+.ticket-page {
+    padding: 70px 0 100px;
+}
+
+.ticket-container {
+    text-align: center;
+}
+
+.success-icon {
+    width: 62px;
+    height: 62px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(34,197,94,.1);
+    border: 1px solid rgba(34,197,94,.25);
+    border-radius: 50%;
+    color: var(--green);
+    font-size: 30px;
+}
+
+.success-message h1 {
+    margin-top: 18px;
+    font-family: "Manrope",sans-serif;
+    font-size: 30px;
+}
+
+.success-message p {
+    margin: 8px auto 35px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* TICKET */
+
+.ticket {
+    overflow: hidden;
+    text-align: left;
+    background: #f7f9fc;
+    color: #121820;
+    border-radius: 16px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.4);
+}
+
+.ticket-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 28px;
+}
+
+.ticket-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ticket-brand .logo-icon {
+    color: white;
+}
+
+.ticket-brand strong {
+    display: block;
+    font-family: "Manrope",sans-serif;
+    font-size: 19px;
+}
+
+.ticket-brand strong span {
+    color: var(--blue);
+}
+
+.ticket-brand small {
+    color: #7a8492;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.ticket-status {
+    padding: 6px 12px;
+    background: #dcfce7;
+    color: #15803d;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.ticket-divider {
+    height: 1px;
+    margin: 0 28px;
+    border-top: 1px dashed #cfd5dd;
+}
+
+.ticket-number {
+    padding: 25px 28px 15px;
+}
+
+.ticket-number span,
+.ticket-info span,
+.ticket-payment span {
+    display: block;
+    color: #7b8796;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.ticket-number strong {
+    display: block;
+    margin-top: 3px;
+    color: var(--blue);
+    font-family: "Manrope",sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+
+.ticket-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    padding: 20px 28px 25px;
+}
+
+.ticket-info strong {
+    display: block;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.ticket-payment {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 28px;
+}
+
+.ticket-payment strong {
+    display: block;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.ticket-price {
+    text-align: right;
+}
+
+.ticket-price strong {
+    color: var(--blue);
+    font-size: 21px;
+}
+
+.ticket-qr {
+    padding: 25px;
+    text-align: center;
+}
+
+#ticketQRCode {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #ddd;
+}
+
+#ticketQRCode canvas {
+    display: block;
+    width: 140px;
+    height: 140px;
+    image-rendering: pixelated;
+}
+
+.qr-render-target {
+    position: fixed;
+    left: -10000px;
+    top: 0;
+}
+
+.ticket-feedback {
+    min-height: 20px;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.ticket-qr > span {
+    display: block;
+    margin-top: 10px;
+    color: #7b8796;
+    font-size: 10px;
+}
+
+.ticket-warning {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 28px 20px;
+    padding: 12px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 8px;
+    color: #9a3412;
+    font-size: 10px;
+}
+
+.ticket-footer {
+    padding: 16px;
+    background: #edf1f6;
+    text-align: center;
+    color: #7b8796;
+    font-size: 10px;
+}
+
+/* ACTIONS */
+
+.ticket-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    border: 0;
+    background: var(--blue);
+    color: white;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: white;
+}
+
+@media(max-width:600px) {
+
+    .ticket-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ticket-actions {
+        flex-direction: column;
+    }
+
+    .ticket-actions .btn {
+        justify-content: center;
+    }
+}

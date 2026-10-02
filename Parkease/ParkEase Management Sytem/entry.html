@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vehicle Entry | ParkEase</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="css/entry.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">
+            <i class="bi bi-p-square-fill"></i>
+          </span>
+
+          <span class="logo-text">
+            Park<span>Ease</span>
+            <small>Smart Parking Management</small>
+          </span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html"> Home </a>
+
+          <a href="parking.html"> Parking Spaces </a>
+
+          <a href="entry.html" class="active"> Vehicle Entry </a>
+
+          <a href="exit.html"> Vehicle Exit </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="entry-page">
+      <div class="container">
+        <div class="page-heading">
+          <span class="section-label"> VEHICLE ENTRY </span>
+
+          <h1>Register Your Vehicle</h1>
+
+          <p>
+            Register your vehicle and parking space. Pay for the time used when
+            you return to collect your vehicle.
+          </p>
+        </div>
+
+        <div class="entry-layout">
+          <!-- VEHICLE FORM -->
+
+          <section class="form-card">
+            <div class="card-title">
+              <div class="title-icon">
+                <i class="bi bi-car-front-fill"></i>
+              </div>
+
+              <div>
+                <h2>Vehicle Information</h2>
+
+                <p>Start a timed parking session.</p>
+              </div>
+            </div>
+
+            <form id="vehicleEntryForm">
+              <div class="form-group">
+                <label for="vehicleNumber"> Vehicle Registration Number </label>
+
+                <div class="input-wrapper">
+                  <i class="bi bi-card-text"></i>
+
+                  <input
+                    type="text"
+                    id="vehicleNumber"
+                    name="vehicleNumber"
+                    placeholder="e.g. GR 1234-24"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="parkingSpace"> Parking Space </label>
+
+                <select id="parkingSpace" name="parkingSpace" required>
+                  <option value="">Loading available spaces...</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-p-square-fill"></i>
+
+                Start Parking
+              </button>
+              <p
+                class="entry-feedback"
+                id="entryFeedback"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </form>
+          </section>
+
+          <!-- SUMMARY -->
+
+          <aside class="summary-card">
+            <div class="summary-header">
+              <span> PARKING SUMMARY </span>
+
+              <i class="bi bi-receipt"></i>
+            </div>
+
+            <div class="summary-icon">
+              <i class="bi bi-p-square-fill"></i>
+            </div>
+
+            <h3>ParkEase Parking</h3>
+
+            <p>Standard parking</p>
+
+            <div class="summary-details">
+              <div>
+                <span> Rate </span>
+
+                <strong id="hourlyRateDisplay"> GHS 10.00 / hour </strong>
+              </div>
+
+              <div>
+                <span> Parking Space </span>
+
+                <strong id="summarySpace"> — </strong>
+              </div>
+            </div>
+
+            <div class="summary-total">
+              <span> Payment </span>
+
+              <strong>Pay when leaving</strong>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-bottom">© 2026 ParkEase. All Rights Reserved.</div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/parking-data.js"></script>
+    <script src="js/entry.js"></script>
+  </body>
+</html>

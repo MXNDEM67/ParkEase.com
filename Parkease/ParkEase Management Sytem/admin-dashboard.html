@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Admin Dashboard | ParkEase</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="css/admin-dashboard.css" />
+  </head>
+
+  <body>
+    <!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">
+            <i class="bi bi-p-square-fill"></i>
+          </span>
+
+          <span class="logo-text"> Park<span>Ease</span> </span>
+        </a>
+      </div>
+
+      <div class="sidebar-label">MAIN MENU</div>
+
+      <nav class="sidebar-nav">
+        <a href="admin-dashboard.html" class="sidebar-link active">
+          <i class="bi bi-grid-1x2-fill"></i>
+
+          <span> Overview </span>
+        </a>
+
+        <a href="admin-parking.html" class="sidebar-link">
+          <i class="bi bi-p-square-fill"></i>
+
+          <span> Parking Spaces </span>
+        </a>
+
+        <a href="admin-vehicles.html" class="sidebar-link">
+          <i class="bi bi-car-front-fill"></i>
+
+          <span> Vehicles </span>
+        </a>
+
+        <a href="admin-tickets.html" class="sidebar-link">
+          <i class="bi bi-ticket-perforated-fill"></i>
+
+          <span> Tickets </span>
+        </a>
+
+        <a href="admin-payments.html" class="sidebar-link">
+          <i class="bi bi-credit-card-fill"></i>
+
+          <span> Payments </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-label">MANAGEMENT</div>
+
+      <nav class="sidebar-nav">
+        <a href="admin-reports.html" class="sidebar-link">
+          <i class="bi bi-bar-chart-fill"></i>
+
+          <span> Reports </span>
+        </a>
+
+        <a href="admin-settings.html" class="sidebar-link">
+          <i class="bi bi-gear-fill"></i>
+
+          <span> Settings </span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="index.html" class="sidebar-link">
+          <i class="bi bi-globe"></i>
+
+          <span> Public Site </span>
+        </a>
+
+        <button id="logoutButton" class="sidebar-link logout">
+          <i class="bi bi-box-arrow-left"></i>
+
+          <span> Logout </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- =====================================================
+     MAIN
+===================================================== -->
+
+    <div class="dashboard-wrapper">
+      <!-- TOPBAR -->
+
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu">
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div class="topbar-title">
+          <span> PARKEASE ADMINISTRATION </span>
+
+          <h1 id="pageTitle">Dashboard Overview</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="notification-button">
+            <i class="bi bi-bell"></i>
+
+            <span class="notification-dot"></span>
+          </button>
+
+          <div class="admin-profile">
+            <div class="admin-avatar">A</div>
+
+            <div>
+              <strong id="adminName"> Administrator </strong>
+
+              <small> System Admin </small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-main">
+        <!-- =================================================
+             OVERVIEW
+        ================================================= -->
+
+        <section id="overview" class="dashboard-section active-section">
+          <div class="welcome-banner">
+            <div>
+              <span> WELCOME BACK </span>
+
+              <h2>Parking Lot Overview</h2>
+
+              <p>Monitor your parking facility and manage today's activity.</p>
+            </div>
+
+            <div class="welcome-date">
+              <i class="bi bi-calendar3"></i>
+
+              <span id="currentDate"> -- </span>
+            </div>
+          </div>
+
+          <!-- STAT CARDS -->
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon blue">
+                <i class="bi bi-p-square-fill"></i>
+              </div>
+
+              <div class="stat-info">
+                <span> Total Spaces </span>
+
+                <strong id="totalSpaces"> 100 </strong>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon green">
+                <i class="bi bi-check-circle-fill"></i>
+              </div>
+
+              <div class="stat-info">
+                <span> Available </span>
+
+                <strong id="availableSpacesAdmin"> 100 </strong>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon red">
+                <i class="bi bi-car-front-fill"></i>
+              </div>
+
+              <div class="stat-info">
+                <span> Occupied </span>
+
+                <strong id="occupiedSpaces"> 0 </strong>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon purple">
+                <i class="bi bi-cash-stack"></i>
+              </div>
+
+              <div class="stat-info">
+                <span> Today's Revenue </span>
+
+                <strong id="todayRevenue"> GHS 0.00 </strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- DASHBOARD GRID -->
+
+          <div class="dashboard-grid">
+            <!-- PARKING STATUS -->
+
+            <div class="dashboard-card parking-status-card">
+              <div class="card-heading">
+                <div>
+                  <span> LIVE PARKING </span>
+
+                  <h3>Parking Space Status</h3>
+                </div>
+
+                <a href="admin-parking.html"> View All </a>
+              </div>
+
+              <div class="admin-parking-grid" id="adminParkingGrid">
+                <!-- Generated by JS -->
+              </div>
+            </div>
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="dashboard-card">
+              <div class="card-heading">
+                <div>
+                  <span> QUICK ACTIONS </span>
+
+                  <h3>Manage Parking</h3>
+                </div>
+              </div>
+
+              <div class="quick-actions">
+                <button class="quick-action" data-action="parking">
+                  <i class="bi bi-p-square-fill"></i>
+
+                  <span> Manage Spaces </span>
+
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+
+                <button class="quick-action" data-action="vehicles">
+                  <i class="bi bi-car-front-fill"></i>
+
+                  <span> View Vehicles </span>
+
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+
+                <button class="quick-action" data-action="payments">
+                  <i class="bi bi-credit-card-fill"></i>
+
+                  <span> View Payments </span>
+
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+
+                <button class="quick-action" data-action="reports">
+                  <i class="bi bi-bar-chart-fill"></i>
+
+                  <span> Generate Reports </span>
+
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- RECENT TRANSACTIONS -->
+
+          <div class="dashboard-card">
+            <div class="card-heading">
+              <div>
+                <span> RECENT ACTIVITY </span>
+
+                <h3>Recent Parking Transactions</h3>
+              </div>
+
+              <a href="admin-payments.html"> View All </a>
+            </div>
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ticket</th>
+
+                    <th>Vehicle</th>
+
+                    <th>Space</th>
+
+                    <th>Duration</th>
+
+                    <th>Payment</th>
+
+                    <th>Amount</th>
+
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody id="recentTransactions">
+                  <tr>
+                    <td colspan="7" class="empty-table">
+                      No recent transactions
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================
+             PARKING SPACES
+        ================================================= -->
+
+        <section id="parking" class="dashboard-section">
+          <div class="section-top">
+            <div>
+              <span> PARKING MANAGEMENT </span>
+
+              <h2>Parking Spaces</h2>
+
+              <p>Manage all parking spaces in the facility.</p>
+            </div>
+
+            <button class="btn-primary">
+              <i class="bi bi-plus-lg"></i>
+              Add Space
+            </button>
+          </div>
+
+          <div class="full-parking-grid" id="fullParkingGrid">
+            <!-- Generated by JS -->
+          </div>
+        </section>
+
+        <!-- =================================================
+             VEHICLES
+        ================================================= -->
+
+        <section id="vehicles" class="dashboard-section">
+          <div class="section-top">
+            <div>
+              <span> VEHICLE MANAGEMENT </span>
+
+              <h2>Parked Vehicles</h2>
+
+              <p>View vehicles currently inside the parking lot.</p>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Vehicle</th>
+
+                    <th>Type</th>
+
+                    <th>Space</th>
+
+                    <th>Entry Time</th>
+
+                    <th>Elapsed</th>
+
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody id="vehicleTable">
+                  <tr>
+                    <td colspan="5" class="empty-table">
+                      No vehicles currently parked.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================
+             TICKETS
+        ================================================= -->
+
+        <section id="tickets" class="dashboard-section">
+          <div class="section-top">
+            <div>
+              <span> TICKET MANAGEMENT </span>
+
+              <h2>Parking Tickets</h2>
+
+              <p>Monitor issued and completed parking tickets.</p>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ticket</th>
+
+                    <th>Vehicle</th>
+
+                    <th>Space</th>
+
+                    <th>Entry</th>
+
+                    <th>Expiry</th>
+
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody id="ticketTable">
+                  <tr>
+                    <td colspan="6" class="empty-table">
+                      No tickets available.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================
+             PAYMENTS
+        ================================================= -->
+
+        <section id="payments" class="dashboard-section">
+          <div class="section-top">
+            <div>
+              <span> PAYMENT MANAGEMENT </span>
+
+              <h2>Payments</h2>
+
+              <p>Monitor parking payments by method.</p>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon green">
+                <i class="bi bi-cash-stack"></i>
+              </div>
+
+              <div class="stat-info">
+                <span> Cash Payments </span>
+
+                <strong id="cashPayments"> GHS 0.00 </strong>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon blue">
+                <i class="bi bi-credit-card"></i>
+              </div>
+
+              <div class="stat-info">
+                <span> Online Payments </span>
+
+                <strong id="onlinePayments"> GHS 0.00 </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Payment ID</th>
+
+                    <th>Ticket</th>
+
+                    <th>Method</th>
+
+                    <th>Amount</th>
+
+                    <th>Date</th>
+                  </tr>
+                </thead>
+
+                <tbody id="paymentTable">
+                  <tr>
+                    <td colspan="5" class="empty-table">
+                      No payment records available.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================
+             REPORTS
+        ================================================= -->
+
+        <section id="reports" class="dashboard-section">
+          <div class="section-top">
+            <div>
+              <span> ANALYTICS </span>
+
+              <h2>Reports</h2>
+
+              <p>Monitor parking activity and revenue.</p>
+            </div>
+          </div>
+
+          <div class="reports-grid">
+            <div class="dashboard-card report-card">
+              <i class="bi bi-cash-stack"></i>
+
+              <span> TOTAL REVENUE </span>
+
+              <strong> GHS 0.00 </strong>
+            </div>
+
+            <div class="dashboard-card report-card">
+              <i class="bi bi-car-front-fill"></i>
+
+              <span> VEHICLES TODAY </span>
+
+              <strong> 0 </strong>
+            </div>
+
+            <div class="dashboard-card report-card">
+              <i class="bi bi-ticket-perforated-fill"></i>
+
+              <span> TICKETS ISSUED </span>
+
+              <strong> 0 </strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================================
+             SETTINGS
+        ================================================= -->
+
+        <section id="settings" class="dashboard-section">
+          <div class="section-top">
+            <div>
+              <span> SYSTEM </span>
+
+              <h2>Settings</h2>
+
+              <p>Configure ParkEase system settings.</p>
+            </div>
+          </div>
+
+          <div class="dashboard-card settings-card">
+            <div class="setting-row">
+              <div>
+                <strong> Parking Rate </strong>
+
+                <p>Standard parking charge per hour.</p>
+              </div>
+
+              <strong class="setting-value"> GHS 10.00 / hour </strong>
+            </div>
+
+            <div class="setting-row">
+              <div>
+                <strong> Payment Methods </strong>
+
+                <p>Accepted payment methods.</p>
+              </div>
+
+              <strong class="setting-value"> Cash + Online </strong>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/parking-data.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+  </body>
+</html>

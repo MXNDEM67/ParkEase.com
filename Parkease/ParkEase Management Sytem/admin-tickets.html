@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tickets | ParkEase Admin</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/admin-dashboard.css" />
+  </head>
+  <body>
+    <div id="adminSidebarMount"></div>
+    <div class="dashboard-wrapper">
+      <header class="topbar">
+        <button
+          class="mobile-menu"
+          id="mobileMenu"
+          aria-label="Toggle navigation"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="topbar-title">
+          <span>PARKEASE ADMINISTRATION</span>
+          <h1 id="pageTitle">Tickets</h1>
+        </div>
+        <div class="topbar-actions">
+          <div class="admin-profile">
+            <div class="admin-avatar">A</div>
+            <div>
+              <strong id="adminName">Administrator</strong
+              ><small>System Admin</small>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="dashboard-main">
+        <section>
+          <div class="section-top">
+            <div>
+              <span>TICKET MANAGEMENT</span>
+              <h2>Parking Tickets</h2>
+              <p>Paid tickets generated when vehicles check out.</p>
+            </div>
+          </div>
+          <div class="dashboard-card">
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ticket</th>
+                    <th>Vehicle</th>
+                    <th>Space</th>
+                    <th>Entry</th>
+                    <th>Paid At</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="ticketTable">
+                  <tr>
+                    <td colspan="6" class="empty-table">Loading tickets...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/parking-data.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+    <script src="js/admin-pages.js"></script>
+  </body>
+</html>
